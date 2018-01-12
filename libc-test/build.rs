@@ -166,7 +166,10 @@ fn main() {
         cfg.header("pty.h");
         cfg.header("shadow.h");
     }
+   if solaris {
+        cfg.header("sys/epoll.h");
 
+  }
     if linux || android {
         cfg.header("malloc.h");
         cfg.header("net/ethernet.h");

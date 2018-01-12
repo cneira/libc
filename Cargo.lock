@@ -1,11 +1,3 @@
-[root]
-name = "libc-test"
-version = "0.1.0"
-dependencies = [
- "ctest 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "libc 0.2.19",
-]
-
 [[package]]
 name = "bitflags"
 version = "0.3.3"
@@ -49,6 +41,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "libc"
 version = "0.2.19"
+
+[[package]]
+name = "libc-test"
+version = "0.1.0"
+dependencies = [
+ "ctest 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libc 0.2.19",
+]
 
 [[package]]
 name = "log"

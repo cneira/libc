@@ -333,6 +333,11 @@ s! {
         pub if_index: ::c_uint,
         pub if_name: *mut ::c_char,
     }
+
+    pub struct epoll_event {
+        pub events: ::uint32_t,
+        pub u64: ::uint64_t,
+    }
 }
 
 pub const LC_CTYPE: ::c_int = 0;
@@ -927,6 +932,29 @@ pub const RTLD_WORLD: ::c_int = 0x800;
 pub const RTLD_NODELETE: ::c_int = 0x1000;
 pub const RTLD_FIRST: ::c_int = 0x2000;
 pub const RTLD_CONFGEN: ::c_int = 0x10000;
+
+pub const EPOLLIN: ::c_int = 0x1;
+pub const EPOLLPRI: ::c_int = 0x2;
+pub const EPOLLOUT: ::c_int = 0x4;
+pub const EPOLLRDNORM: ::c_int = 0x40;
+pub const EPOLLRDBAND: ::c_int = 0x80;
+pub const EPOLLWRNORM: ::c_int = 0x100;
+pub const EPOLLWRBAND: ::c_int = 0x200;
+pub const EPOLLMSG: ::c_int = 0x400;
+pub const EPOLLERR: ::c_int = 0x8;
+pub const EPOLLHUP: ::c_int = 0x10;
+pub const EPOLLET: ::c_int = 0x80000000;
+pub const EPOLLRDHUP: ::c_int = 0x2000;
+pub const EPOLLEXCLUSIVE: ::c_int = 0x10000000;
+pub const EPOLLONESHOT: ::c_int = 0x40000000;
+pub const EPOLL_CLOEXEC: ::c_int = 0x02000000;
+pub const EPOLL_CTL_ADD: ::c_int = 1;
+pub const EPOLL_CTL_MOD: ::c_int = 3;
+pub const EPOLL_CTL_DEL: ::c_int = 2;
+
+
+
+
 
 f! {
     pub fn FD_CLR(fd: ::c_int, set: *mut fd_set) -> () {
