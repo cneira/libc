@@ -952,8 +952,8 @@ pub const EPOLL_CTL_ADD: ::c_int = 1;
 pub const EPOLL_CTL_MOD: ::c_int = 3;
 pub const EPOLL_CTL_DEL: ::c_int = 2;
 
-pub const SYS_epoll_create: ::c_long = 213;
-pub const SYS_epoll_create1: ::c_long = 291;
+pub const epoll_create: ::c_long = 213;
+pub const epoll_create1: ::c_long = 291;
 
 
 
@@ -1095,10 +1095,12 @@ extern {
 
     pub fn epoll_create(size: ::c_int) -> ::c_int;
     pub fn epoll_create1(flags: ::c_int) -> ::c_int;
+
     pub fn epoll_wait(epfd: ::c_int,
                       events: *mut ::epoll_event,
                       maxevents: ::c_int,
                       timeout: ::c_int) -> ::c_int;
+
     pub fn epoll_ctl(epfd: ::c_int,
                      op: ::c_int,
                      fd: ::c_int,
