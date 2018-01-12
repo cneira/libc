@@ -1084,4 +1084,23 @@ extern {
                          abstime: *const ::timespec) -> ::c_int;
     pub fn pthread_mutex_timedlock(lock: *mut pthread_mutex_t,
                                    abstime: *const ::timespec) -> ::c_int;
+
+    pub fn epoll_pwait(epfd: ::c_int,
+                       events: *mut ::epoll_event,
+                       maxevents: ::c_int,
+                       timeout: ::c_int,
+                       sigmask: *const ::sigset_t) -> ::c_int;
+
+    pub fn epoll_create(size: ::c_int) -> ::c_int;
+    pub fn epoll_create1(flags: ::c_int) -> ::c_int;
+    pub fn epoll_wait(epfd: ::c_int,
+                      events: *mut ::epoll_event,
+                      maxevents: ::c_int,
+                      timeout: ::c_int) -> ::c_int;
+    pub fn epoll_ctl(epfd: ::c_int,
+                     op: ::c_int,
+                     fd: ::c_int,
+                     event: *mut ::epoll_event) -> ::c_int;
+
+
 }
