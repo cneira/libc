@@ -952,11 +952,6 @@ pub const EPOLL_CTL_ADD: ::c_int = 1;
 pub const EPOLL_CTL_MOD: ::c_int = 3;
 pub const EPOLL_CTL_DEL: ::c_int = 2;
 
-pub const epoll_create: ::c_long = 213;
-pub const epoll_create1: ::c_long = 291;
-
-
-
 
 f! {
     pub fn FD_CLR(fd: ::c_int, set: *mut fd_set) -> () {
@@ -996,6 +991,7 @@ f! {
 }
 
 extern {
+
     pub fn getifaddrs(ifap: *mut *mut ::ifaddrs) -> ::c_int;
     pub fn freeifaddrs(ifa: *mut ::ifaddrs);
 
@@ -1086,7 +1082,6 @@ extern {
                          abstime: *const ::timespec) -> ::c_int;
     pub fn pthread_mutex_timedlock(lock: *mut pthread_mutex_t,
                                    abstime: *const ::timespec) -> ::c_int;
-
     pub fn epoll_pwait(epfd: ::c_int,
                        events: *mut ::epoll_event,
                        maxevents: ::c_int,
@@ -1094,6 +1089,7 @@ extern {
                        sigmask: *const ::sigset_t) -> ::c_int;
 
     pub fn epoll_create(size: ::c_int) -> ::c_int;
+
     pub fn epoll_create1(flags: ::c_int) -> ::c_int;
 
     pub fn epoll_wait(epfd: ::c_int,
@@ -1105,6 +1101,7 @@ extern {
                      op: ::c_int,
                      fd: ::c_int,
                      event: *mut ::epoll_event) -> ::c_int;
+
 
 
 }
